@@ -268,8 +268,8 @@ function doWhile(num) {
    
    let veces = 0;
    do {
-   num += 5;
-   veces++;
+   num += 5; //suma 5 al contenido de la variable.
+   veces++; //suma 1 al contenido.
    } while (veces < 8);
    return num;
 }
