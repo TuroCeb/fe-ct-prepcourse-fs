@@ -11,7 +11,7 @@ function crearGato(nombre, edad) {
    //Creo un objeto con dos propiedades. Estas propiedades contienen los valores que
    //la function recibe en sus parámetros.
    var nuevObjeto = {nombre: nombre , edad: edad};
-   nuevObjeto.meow = function () {
+   nuevObjeto.meow = function () { //Aquí agrego una propiedad al objeto con una function
       return('Meow!');
    }
    return nuevObjeto;
@@ -26,6 +26,9 @@ function nuevoUsuario(nombre, email, password) {
    //VER EL VIDEO DE RESOLUCIÓN DE HOMEWORK MOD 06
 
    var objetoNuevo = { //Los valores de las propiedades son los valores entregados por la function.
+      // En la descripción de ejercicio no indica que los valores son los entregagos por la function
+      //pero en hecho de que en la function este los nombres de las propiedades indica que 
+      //la function entrega los valores.
       nombre: nombre, 
       email: email, 
       password: password}
@@ -40,43 +43,49 @@ function agregarPropiedad(objeto, propiedad) {
    // Retornar el objeto.
    // Tu código:
 
-objeto[propiedad] = null; //El valor no la propiedad no va entre corchetes por ser palabra 
-//reservada.
+objeto[propiedad] = null;
+// Aquí se usa bracket notation para agregar propiedad, pero sin comillas porque la
+//propiedad recibida en una variable de la function por parámetro. 
+//El valor de la propiedad (null) no va entre corchetes por ser palabra reservada.
 return objeto;
 
 }
 
 function invocarMetodo(objeto, metodo) {
-   // El parámetro "metodo" es un string que coincide con el nombre de una propiedad del objeto recibido.
+   // El parámetro "metodo" es un string que coincide con el nombre de una propiedad del objeto 
+   //recibido.
    // Esta propiedad contiene una función en su interior. Debes invocarla/ejecutarla.
    // [NOTA]: no necesitar retornar nada.
    // Tu código:
-   // LOS PARAMETROS DE LA FUNCTION, QUE PARA ESTE CASO SON VARIABLES, CONTIENEN, 
-   // EL PRIMERO EL NOMBRE DEL OBJETO,Y EL SEGUNDO EL NOMBRE DE LA PROPIEDAD
-   // PROPIEDAD QUE CONTIENE UNA FUNCTION
+   // LOS PARAMETROS DE LA FUNCTION [La que encabeza este ejercicio no la que se pide invocar]
+   // QUE PARA ESTE CASO SON VARIABLES, CONTIENEN, 
+   // EL PRIMERO EL NOMBRE DEL OBJETO,Y EL SEGUNDO EL NOMBRE DE LA PROPIEDAD, LA CUAL
+   // CONTIENE UNA FUNCTION (METODO)
    objeto[metodo](); //AQUÍ SE INVOCA LA FUNCTION DENTRO DE LA PROPIEDAD DEL OBJETO RESPECTIVO
-   // Recuerdese que objeto y metodo son parámetros del a function principal que contienen
-   // el primero el nombre del objeto y el segundo el nombre de la propiedad que contiene
-   // la function que se debe invocar.
+   // Recuerdese que objeto y metodo son parámetros del a function principal. Los parámetros 
+   //contienen, el primero el nombre del objeto y el segundo el nombre de la propiedad que 
+   //contiene la function que se debe invocar. La function se invoca con
+   // estos parentesis ()
 };
 
 
 function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
-   // El parámetro "objetoMisterioso" posee una propiedad con el nombre "numeroMisterioso".
+   // El parámetro "objetoMisterioso" es un objeto. 
+   // Este objeto posee una propiedad con el nombre "numeroMisterioso".
    // Debes multiplicar este número por 5 y retornar el resultado.
    // Tu código:
-
-   //Opción 1. Se realiza la operación tilizando Dot.Notation
+   //OPCIÓN 1. Se realiza la operación utilizando Dot.Notation
    /**
    var Resultado = objetoMisterioso.numeroMisterioso * 5;
    return Resultado;
    */
-
-   // Opción 2 Se realiza la operación tilizando Bracket.Notation
+   // OPCIÓN 2 Se realiza la operación utilizando Bracket.Notation
   // var Resultado = objetoMisterioso['numeroMisterioso'] * 5;
    //return Resultado;
 
    // Opción  Se realiza la operación tilizando Bracket.Notation pero más optimo.
+   // Aquí no se lleva el resultado a una variable para luego retornar sino que se 
+   // retorna de una vez el resultado de la operación.
    return objetoMisterioso['numeroMisterioso'] * 5;
 }
 
@@ -156,7 +165,9 @@ function pasarUsuarioAPremium(objetoMuchosUsuarios) {
    // Tu código:
    for (var i=0; i<objetoMuchosUsuarios.length; i++ ) {
    objetoMuchosUsuarios[i].esPremium = true;
-   }
+   }// El arrego objetoMuchosUsuarios para por cada posición [i] que es un objeto
+   //y en ese objeto dentro del arreglo principal en su propiedad esPremium que es booleano
+   //se le da el valor True.
    return objetoMuchosUsuarios;
 }
 
@@ -168,7 +179,11 @@ function sumarLikesDeUsuario(objetoUsuario) {
    // Tu código:
    var sumarLikes = 0
   for (i=0; i<objetoUsuario.posts.length; i++) {
-     sumarLikes = sumarLikes + objetoUsuario.posts[i].likes; 
+   //La línea anterior está recorriendo el array "posts" eue está en el 
+   //objetoUsuario. Se recorre aquí el array "posts" hasta el final. 
+     sumarLikes = sumarLikes + objetoUsuario.posts[i].likes;
+     // Aquí se suma el número que contiene cada propiedad "likes" de cada objeto "post"
+     //dentro del array "posts". 
   }
   return sumarLikes;
 }
@@ -176,22 +191,18 @@ function sumarLikesDeUsuario(objetoUsuario) {
 function agregarMetodoCalculoDescuento(objetoProducto) {
    // Agrega una propiedad al "objetoProducto" con el nombre "calcularPrecioDescuento".
    // Esta propiedad debe ser una función que multiplique el precio del producto por el porcentajeDeDescuento.
-   // El "objetoProducto" posee una propiedad "precio" y una propiedad "porcentajeDeDescuento".
+   // Por lo tanto el "objetoProducto" posee una propiedad "precio" y una propiedad "porcentajeDeDescuento".
    // Luego debes restar del precio total del producto ese valor de descuento.
    // Retornar el precio final. [precioFinal es una propiedad del "objetoProducto"]
    //RETORNAR objetoProducto.
-   // Ejemplo:
-   // Precio ---> 10
-   // PorcentajeDeDescuento ---> 0.2
+   // Ejemplo:     // Precio ---> 10     // PorcentajeDeDescuento ---> 0.2
    // Precio final ---> 8
-   // LA DESCRIPCIÓN DEL EJERCICIO ESTÁ CON ERRORES. 
-   // Tu código:
-   
+   // LA DESCRIPCIÓN DEL EJERCICIO ESTÁ CON ERRORES, pero la he mejorado.    // Tu código:  
    
    objetoProducto.calcularPrecioDescuento = function () {
       var descuentoProducto = objetoProducto.precio * objetoProducto.porcentajeDeDescuento;
-      objetoProducto["Precio final"] = objetoProducto.precio - descuentoProducto;
-       return objetoProducto["Precio final"];
+      objetoProducto.Precio_final = objetoProducto.precio - descuentoProducto;
+       return objetoProducto.Precio_final;
    }
    return objetoProducto;
 }

@@ -26,20 +26,20 @@ function incrementarPorUno(array) {
    // El arreglo recibido por parámetro contiene números.
    // Retornar otro arreglo con los elementos incrementados en +1.
    // Tu código:
-  // var masUno = array.map((num) => {return num+1}); //Aquí se crea otro arreglo llamado masUno
+   //var masUno = array.map((num) => {return num+1}); //Aquí se crea otro arreglo llamado masUno
    //Al arreglo array se le hace un map para que recorra todos los números en él
    //y parado en cada número a este se le suma 1. El resultado de ese recorrido es el array
    //masUno
    // return masUno;
 
-   /*   
+  /**  
    //OPCIÓN 2
    for (i = 0; i < array.length; i++) {
       array[i] += 1;
    }
    return array;
-   
-   */
+  */
+
   //OPCIÓN 3
 for (let i in array) { // Este for se ejecuta y la variable i se incrementa tanta veces como  
    //posiciones tega en array.
@@ -470,9 +470,7 @@ function continueStatement(num) {
    // Guardar cada nuevo valor en un array y retornarlo.
    // Cuando el número de iteraciones alcance el valor 5, no se suma ese caso y
    // se continua con la siguiente iteración.
-   // [PISTA]: utiliza el statement 'continue'.
-   // Tu código:
-
+   // [PISTA]: utiliza el statement 'continue'.    // Tu código:
    var nuevoArreglo = []
    for (v = 0; v < 10; v++) {
       if (v === 5) {
