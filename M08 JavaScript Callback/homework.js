@@ -42,12 +42,10 @@ function operacionMatematica(num1, num2, cb) {
    // Retorna el resultado del callback pasándole como parámetros los números.
    // Tu código:
    return cb(num1, num2); //Es aquí donde el callback llama a la function correspondiente
-
    //Esto ocurriría detras en el test para evaluar este ejercicio
    //function suma(num1, num2){ // se crea una function suma
    //   return num1 + num1;
    //}
-
    //funcion resta(num1, num2) { // Se crea una function resta
       //retur num1 - num2;
    //}
